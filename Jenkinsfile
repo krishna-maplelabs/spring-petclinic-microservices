@@ -3,14 +3,20 @@ pipeline {
 
     stages {
         stage('build') {
-            sh './mvnw clean install -PbuildDocker'
-            sh 'docker-compose up -d'
+            steps {
+                sh './mvnw clean install -PbuildDocker'
+                sh 'docker-compose up -d'
+            }
         }
         stage('test') {
-            echo 'Testing'
+            steps {
+                echo 'Testing'
+            }
         }
         stage('deploy') {
-            echo 'Deploying'
+            steps {
+                echo 'Deploying'
+            }
         }
     }
     post {
